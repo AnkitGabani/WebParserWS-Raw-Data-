@@ -1,0 +1,28 @@
+---->>> HEADER <------
+#import "GlobalFunction.h"
+
+--->> Class 
+ViewController , responseDelegate
+
+//MARK:- API Call
+    func callLoginAPI() {
+
+        let dict = NSMutableDictionary()
+        dict.setValue(txtPhone.text, forKey: "phone")
+        dict.setValue(txtPass.text, forKey: "password")
+
+        WebParserWS.fetchDataWithURL(url: BASE_URL + USER_LOGIN as NSString, type: .TYPE_POST_RAWDATA, ServiceName: USER_LOGIN, bodyObject: dict, delegate: self, isShowProgress: true)
+       
+    }
+
+func didFinishWithSuccess(ServiceName: String, Response: AnyObject){
+
+          print(Response)
+          
+          DispatchQueue.main.async {
+          
+          }
+          
+}
+
+
