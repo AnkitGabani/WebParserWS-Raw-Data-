@@ -24,5 +24,20 @@ func didFinishWithSuccess(ServiceName: String, Response: AnyObject){
           }
           
 }
+/// Sring pass in parameter
 
-
+ func json(from object:Any) -> String? {
+        
+        if let theJSONData = try?  JSONSerialization.data(
+            withJSONObject: object,
+            options: .prettyPrinted
+            ),
+            let theJSONText = String(data: theJSONData,
+                                     encoding: String.Encoding.ascii) {
+            print("JSON string = \n\(theJSONText)")
+            
+            return theJSONText
+        }
+        
+        return ""
+    }
